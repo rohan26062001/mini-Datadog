@@ -1,6 +1,7 @@
 package com.observability.ingestion.service;
 
 import com.observability.common.dto.LogEvent;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -8,14 +9,14 @@ import org.springframework.stereotype.Service;
 public class KafkaLogProducer {
 
     private final KafkaTemplate<String, LogEvent> kafkaTemplate;
-    private final String topicName;
+    @Value("${kafka.topic.logs}")
+    private String topicName;
 
     public KafkaLogProducer(KafkaTemplate<String, LogEvent> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
-        this.topicName = "logs";
     }
 
     public void publishLogs(LogEvent logEvent) {
-        kafkaTemplate.send(topicName, logEvent);
+        kafkaTemplate.send(topicName, logEvent.getServiceName(), logEvent);
     }
 }

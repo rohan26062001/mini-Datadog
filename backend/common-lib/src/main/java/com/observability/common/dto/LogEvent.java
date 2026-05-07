@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class LogEvent {
     private String serviceName;
-    private String level;
+    private LogLevel level;
     private String message;
     private long timestamp;
 }
