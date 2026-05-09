@@ -2,7 +2,7 @@ package com.observability.processing.service;
 
 import com.observability.common.dto.LogEvent;
 import com.observability.processing.dao.LogEventRepository;
-import com.observability.processing.entity.LogEntity;
+import com.observability.common.entity.LogEntity;
 import org.jspecify.annotations.NonNull;
 import org.springframework.stereotype.Service;
 

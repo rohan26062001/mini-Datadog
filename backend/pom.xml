@@ -30,6 +30,7 @@
         <module>common-lib</module>
         <module>ingestion-service</module>
         <module>processing-service</module>
+        <module>query-service</module>
     </modules>
 
     <dependencyManagement>

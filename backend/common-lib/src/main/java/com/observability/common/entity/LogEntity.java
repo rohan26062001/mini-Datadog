@@ -1,6 +1,5 @@
-package com.observability.processing.entity;
+package com.observability.common.entity;
 
-import com.observability.common.dto.LogLevel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
