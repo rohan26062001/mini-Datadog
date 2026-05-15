@@ -18,4 +18,20 @@ public class QueryService {
     public List<LogEntity> getAllLogs() {
         return queryRepository.findAll();
     }
+
+    public List<LogEntity> getLogsByServiceName(String serviceName) {
+        return queryRepository.findByServiceName(serviceName);
+    }
+
+    public List<LogEntity> getLogsByLevel(String level) {
+        return queryRepository.findByLevel(level);
+    }
+
+    public List<LogEntity> getLogsByTimeRange(long startTimestamp, long endTimestamp) {
+        return queryRepository.findByTimestampBetween(startTimestamp, endTimestamp);
+    }
+
+    public List<LogEntity> getLogsByServiceAndLevel(String serviceName, String level) {
+        return queryRepository.findByServiceNameAndLevel(serviceName, level);
+    }
 }
