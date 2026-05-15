@@ -21,11 +21,7 @@ public class LogsController {
 
     @PostMapping("/v1/logs")
     public ResponseEntity<String> publishLogsV1(@RequestBody LogEvent logEvent) {
-        try {
-            kafkaLogProducer.publishLogs(logEvent);
-            return new ResponseEntity<>("Log published to Kafka", HttpStatus.ACCEPTED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
-        }
+        kafkaLogProducer.publishLogs(logEvent);
+        return new ResponseEntity<>("Log published to Kafka", HttpStatus.ACCEPTED);
     }
 }
